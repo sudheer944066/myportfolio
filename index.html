@@ -1,135 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            text-align: center;
-        }
-
-        input[type="text"] {
-            width: calc(100% - 44px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px;
-            background: #5c67f2;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: #4a56c9;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: #f9f9f9;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        li.completed {
-            text-decoration: line-through;
-            color: #888;
-        }
-
-        .delete {
-            background: #ff5c5c;
-            border: none;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .delete:hover {
-            background: #e04a4a;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Clicker+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>To-Do List</h1>
-        <div>
-            <input id="todo-input" type="text" placeholder="Add a new task...">
-            <button onclick="addTask()">Add</button>
-        </div>
-        <ul id="todo-list"></ul>
+  <!-- Aside -->
+  <aside class="aside">
+    <div class="logo">
+      <a href="#"><span>My</span>Portfolio</a>
     </div>
+    <div class="nav-toggler">
+      <span></span>
+    </div>
+    <ul class="nav">
+      <li><a href="#home"><i class="icon"></i>Home</a></li>
+      <li><a href="#about"><i class="icon"></i>About</a></li>
+      <li><a href="#skills"><i class="icon"></i>Skills</a></li>
+      <li><a href="#projects"><i class="icon"></i>Projects</a></li>
+      <li><a href="#contact"><i class="icon"></i>Contact</a></li>
+    </ul>
+  </aside>
 
-    <script>
-        function addTask() {
-            const input = document.getElementById('todo-input');
-            const taskText = input.value.trim();
+  <!-- Main Container -->
+  <div class="main-container">
 
-            if (taskText === '') {
-                alert('Please enter a task!');
-                return;
-            }
+    <!-- Home Section -->
+    <section id="home" class="section home">
+      <div class="container row">
+        <div class="home-info">
+          <h3 class="hello">Hello, I'm <span>Your Name</span></h3>
+          <h3 class="my-profession">I am a <span class="typing">Web Developer</span></h3>
+          <p>
+            Welcome to my portfolio. I create user-friendly, efficient, and stunning web experiences.
+          </p>
+          <a href="#contact" class="btn">Contact Me</a>
+        </div>
+        <div class="home-img">
+          <img src="profile-picture.jpg" alt="Profile Picture">
+        </div>
+      </div>
+    </section>
 
-            const taskItem = document.createElement('li');
-            taskItem.textContent = taskText;
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container row">
+        <div class="about-content">
+          <div class="about-text">
+            <h3>About <span>Me</span></h3>
+            <p>
+              I am a passionate developer with experience in building high-quality, responsive web applications.
+            </p>
+          </div>
+          <div class="personal-info">
+            <h3>Personal Info</h3>
+            <ul>
+              <li>Name: Your Name</li>
+              <li>Email: yourname@example.com</li>
+              <li>Location: Your City, Your Country</li>
+            </ul>
+          </div>
+        </div>
+        <div class="skills">
+          <h3>My <span>Skills</span></h3>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            // Add mark complete functionality
-            taskItem.addEventListener('click', function () {
-                taskItem.classList.toggle('completed');
-            });
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+        </div>
+        <div class="row">
+          <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of your project goes here.</p>
+          </div>
+          <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of your project goes here.</p>
+          </div>
+          <!-- Add more projects as needed -->
+        </div>
+      </div>
+    </section>
 
-            // Add delete button
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.className = 'delete';
-            deleteButton.addEventListener('click', function () {
-                taskItem.remove();
-            });
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+        </div>
+        <p>Feel free to reach out for collaborations or just a friendly chat!</p>
+        <a href="mailto:yourname@example.com" class="btn">Email Me</a>
+      </div>
+    </section>
 
-            taskItem.appendChild(deleteButton);
-            document.getElementById('todo-list').appendChild(taskItem);
-
-            // Clear the input
-            input.value = '';
-        }
-    </script>
+  </div>
 </body>
+
 </html>
